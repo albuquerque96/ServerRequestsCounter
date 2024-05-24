@@ -1,5 +1,4 @@
 # ServerRequestsCounter
-
 # Main Goal
 
 Practice various software development concepts including:
@@ -8,7 +7,39 @@ Practice various software development concepts including:
 - **Node.js**: `Middleware, Express, endpoints, `.
 - **Nginx**: `Load balancing, reverse proxy, different algorithms` (static and dynamic).
 - **Docker**: `Dockerfile commands, building images, creating and stopping containers,docker-compose` for orchestrating the solution.
-- 
+
+## Phase 1
+
+### Goal
+Make a single Node.js server instance available to accept HTTP requests, listening on port 5000, and count the number of requests made.
+
+
+
+
+### Testing the Code
+
+
+```sh
+#start three server instances:
+examples: 
+    node ./app.js $PORT
+    
+    node ./app.js 
+    node ./app.js 5001
+    node ./app.js 5002
+```  
+
+Use the curl command:
+
+```sh 
+    - curl http://localhost:5000
+    - curl http://localhost:5001 
+    - curl http://localhost:5002
+ ```   
+1. Make several requests to the above endpoints.
+2. View the responses directly in the browser or in Visual Studio Code console.
+3. Each server instance will respond with the total number of requests made.
+
 ## Phase 2
 
 ### Goal
@@ -47,4 +78,22 @@ docker rm nodeServerContainer2
 **Remove Image:**
 ```sh
 docker rmi serverimage:1
+```
+
+## Phase 3
+
+### Goal
+Create several server instances and also an Nginx container for load balancing using `docker-compose` with a single command.
+
+### Commands to Run the Code
+```sh
+docker-compose up
+```
+
+### Testing
+Make several HTTP requests to `localhost:80` and view the responses. The default algorithm used is round-robin, a static load balancing algorithm.
+
+### Remove the Solution from Your Machine
+```sh
+docker-compose down
 ```
