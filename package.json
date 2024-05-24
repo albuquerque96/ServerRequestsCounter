@@ -1,0 +1,23 @@
+{
+  "name": "simple_requests_conter",
+  "version": "1.0.0",
+  "description": "http resquest counter node server (express)",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "git"
+  ],
+  "author": "Miguel Albuquerque",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albuquerque96/ServerRequestCounter/issues"
+  },
+  "homepage": "https://github.com/albuquerque96/ServerRequestCounter#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
