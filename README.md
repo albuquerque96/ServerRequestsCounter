@@ -1,4 +1,3 @@
-# ServerRequestsCounter
 # Main Goal
 
 Practice various software development concepts including:
