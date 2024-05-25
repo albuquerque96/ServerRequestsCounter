@@ -1,0 +1,33 @@
+version: '3'
+services:
+  server-instance-1:
+    build:
+      context: .
+    ports:
+      - "5001:5000"
+  server-instance-2:
+    build:
+      context: .
+    ports:
+      - "5002:5000"
+  server-instance-3:
+    build:
+      context: .
+    ports:
+      - "5003:5000"
+  server-instance-4:
+    build:
+      context: .
+    ports:
+      - "5004:5000"
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server-instance-1
+      - server-instance-2
+      - server-instance-3
+      - server-instance-4
