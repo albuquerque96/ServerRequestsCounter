@@ -1,16 +1,19 @@
-const express = require('express');
+const express = require("express");
 
 const app = express();
 var totalCalls = 0;
 
- const  callCounter = async(req, res, next) => {
+//Midleware 
+const callCounter = async (req, res, next) => {
   ++totalCalls;
   console.log(totalCalls);
   next();
 };
 
-app.get('/',callCounter, (req, res) => {
-  res.status(200).json({ "total": totalCalls });
+
+//Route Handler
+app.get("/", callCounter, (req, res) => {
+  res.status(200).json({ total: totalCalls });
 });
 
 app.use(callCounter);
@@ -21,3 +24,4 @@ const port = process.argv[2] || 5000; // Default to 5000 if no port is provided
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`);
 });
+
