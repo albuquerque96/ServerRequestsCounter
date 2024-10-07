@@ -1,25 +1,22 @@
-version: '3'
 services:
   server-instance-1:
     build:
       context: .
-    ports:
-      - "5001:5000"
+    environment:
+      - SERVER_NAME=Server1
+      - PORT=5001
   server-instance-2:
     build:
       context: .
-    ports:
-      - "5002:5000"
+    environment:
+      - SERVER_NAME=Server2
+      - PORT=5002
   server-instance-3:
     build:
       context: .
-    ports:
-      - "5003:5000"
-  server-instance-4:
-    build:
-      context: .
-    ports:
-      - "5004:5000"
+    environment:
+      - SERVER_NAME=Server3
+      - PORT=5003
   nginx:
     image: nginx
     ports:
@@ -30,4 +27,3 @@ services:
       - server-instance-1
       - server-instance-2
       - server-instance-3
-      - server-instance-4
